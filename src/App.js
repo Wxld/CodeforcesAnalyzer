@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Navbar from "./Components/Navbar";
 
-function App() {
+import Main from "./Components/Main";
+import ScrollToTop from "./Components/ScrollToTop";
+
+const App = () => {
+  const [handle, setHandle] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen w-full flex flex-col items-center bg-gradient-to-tr from-slate-50 to-slate-200 pb-12 relative">
+      <Navbar />
+      <Main handle={handle} setHandle={setHandle} />     
+      <ScrollToTop />
     </div>
   );
 }
