@@ -4,17 +4,22 @@ import { motion } from "framer-motion";
 import RatingTable from "./Tables/RatingTable";
 import Question from "./Question";
 import SearchBar from './Main/SearchBar';
+import ErrorHandler from './ErrorHandler';
+import LoadingHandler from './LoadingHandler';
 
 const Main = ({handle, setHandle}) => {
     const [searchResults, setSearchResults] = useState(false);
     const [profile, setProfile] = useState();
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState("");
+    const [error, setError] = useState("");
 
     const searchHandler = () => {
+        setError("");
         setName(handle);
         setSearchResults(false)
         setLoading(true);
+        // setTimeout(() => {}, 5000)
         fetch(`https://codeforces.com/api/user.info?handles=${handle}`, {
           headers : { 
             // 'Content-Type': 'application/json',
@@ -22,6 +27,18 @@ const Main = ({handle, setHandle}) => {
            }
         })
         .then(res => {
+          if(!res.ok)
+          {
+            if(parseInt(res.status) === 400)
+            {
+              setError("Username doesn't exist");
+            }
+            else
+            {
+              setError('Something went wrong!');
+            }
+            setLoading(false)
+          }
           return res.json();
         })
         .then(data => {
@@ -29,19 +46,23 @@ const Main = ({handle, setHandle}) => {
           setSearchResults(true);
           setLoading(false);
         })
+        .catch(err => {
+          console.log(err.message);
+        })
       }
 
     return (
+      
         <div className='w-full flex flex-col justify-center items-center'>
 
             {/* New Search bar after the first search has been done. */}
-            <SearchBar handle={handle} setHandle={setHandle} searchHandler={searchHandler} />
+            <SearchBar handle={handle} setHandle={setHandle} searchHandler={searchHandler} setError={setError}/>
+
+            {/* Error handling */}
+            {error && <ErrorHandler error={error}/>}
 
             {/* Loading screen */}
-            {loading && 
-            <div className='my-4'>
-                <p>Calling Mike to send data...</p>
-            </div>}
+            {loading && <LoadingHandler loading={loading}/>}
 
             {/* Loading becomes false and search becomes true then this section is loaded */}
 

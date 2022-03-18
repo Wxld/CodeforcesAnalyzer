@@ -298,7 +298,7 @@ const Question = ({name}) => {
             return res.json()
         })
         .then(data => {
-            console.log(data.result);
+            // console.log(data.result);
             setData(data.result);
             setCalc(true)
             setLoading(true)
