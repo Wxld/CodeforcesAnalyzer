@@ -15,7 +15,12 @@ const Main = ({handle, setHandle}) => {
         setName(handle);
         setSearchResults(false)
         setLoading(true);
-        fetch(`https://codeforces.com/api/user.info?handles=${handle}`)
+        fetch(`https://codeforces.com/api/user.info?handles=${handle}`, {
+          headers : { 
+            // 'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        })
         .then(res => {
           return res.json();
         })
