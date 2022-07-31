@@ -1,7 +1,7 @@
 import 'remixicon/fonts/remixicon.css'
 const Navbar = () => {
     return (
-        <div className="w-4/5 flex item-center justify-between my-2 rounded-full py-4 box-border bg-white">
+        <div className="w-full md:w-4/5 flex item-center justify-between my-2 rounded-full py-4 box-border bg-white">
             <a href=" " className=' flex items-center w-8 ml-6'>
                 <img src={require("../asset/code-forces.svg").default} alt="" />
             </a>

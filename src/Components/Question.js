@@ -306,12 +306,12 @@ const Question = ({name}) => {
     }, [name]);
 
     return (
-        <div className='w-3/4'>
+        <div className='w-5/6 px-2 lg:w-3/4'>
             {
                 loading && 
                 <>
                 <div className='my-8 w-full bg-white flex flex-col items-center'>
-                    <div className=' flex w-full'>
+                    <div className='flex w-full flex-col lg:flex-row items-center'>
                         <div className='w-1/2 p-8 flex flex-col items-center'>
                             <p className='mb-2'>Languages that you use:</p>
                             <Pie data={submissionData} />

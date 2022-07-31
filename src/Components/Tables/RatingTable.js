@@ -7,7 +7,7 @@ const RatingTable = ({name}) => {
     const [loading, setLoading] = useState(false);
     const table = RatingData;
 
-    {/* Gets all the contest information */}
+    /* Gets all the contest information */
     useEffect(() => {
         fetch(`https://codeforces.com/api/user.rating?handle=${name}`)
         .then(res => {
@@ -38,7 +38,7 @@ const RatingTable = ({name}) => {
                         }
                     }}
 
-                    className="flex w-1/3 " key={index}>
+                    className="flex w-3/5 lg:w-1/3 " key={index}>
                         <div className={`border-black py-4 w-3/4 pl-4 ${row.style1}`}>{row.rowData}</div>
                         <div className={`border-black py-4 w-1/4 text-center ${row.style2}`}>
                             {<LoadData index={index} rating={rating} />}
