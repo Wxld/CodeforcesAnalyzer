@@ -5,21 +5,22 @@ const ScrollToTop = () => {
 
   const toggleVisible = () => {
       const scrolled = document.documentElement.scrollTop;
-      if(scrolled >  200) {
+      // once scroll has reached a certain level enable the button
+      if(scrolled > 200) {
           setVisible(true);
       }
       else {
           setVisible(false);
       }
   }
-
+  // behaviour after the button is clicked
   const scrollToTop = () => {
       window.scrollTo({
           top : 0,
           behavior : 'smooth',
       })
   }
-  
+  // adding an event listener on scroll
   window.addEventListener('scroll', toggleVisible);
 
   return (

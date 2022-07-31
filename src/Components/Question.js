@@ -58,13 +58,14 @@ const Question = ({name}) => {
         for(let i=0; i<data.length; i++)
         {
             const submissionInLanguage = data[i].programmingLanguage;
+            // if language is present then update the counter
             if(submissionsPieChart.has(submissionInLanguage))
             {
                 let prevSubs = submissionsPieChart.get(submissionInLanguage);
                 submissionsPieChart.set(submissionInLanguage, prevSubs+1);
             }
-            else
-            {
+            else // o/w add the new language
+            { 
                 submissionsPieChart.set(submissionInLanguage, 1);
             }
 
@@ -87,8 +88,10 @@ const Question = ({name}) => {
                 const alphabet = data[i].problem.index;
 
                 if(verdict === "OK")
-                {
+                { // succesful submission thus {1, 0}
                     universalMap.set(id, [1, 0]);
+
+                    // updating difficulty based on problem no. in contest bar chart
                     if(alphabetRatedQs.has(alphabet))
                     {
                         let prevSolved = alphabetRatedQs.get(alphabet);
@@ -99,6 +102,7 @@ const Question = ({name}) => {
                         alphabetRatedQs.set(alphabet, 1);
                     }
 
+                    // updating the difficulty based on number Bar Chart
                     if(numRatedQs.has(rating))
                     {
                         let prevSolved = numRatedQs.get(rating);
@@ -109,6 +113,7 @@ const Question = ({name}) => {
                         numRatedQs.set(rating, 1);
                     }
 
+                    // updating topics pie chart 
                     const tags = data[i].problem.tags;
                     for(let j=0; j<tags.length; j++)
                     {
@@ -123,7 +128,7 @@ const Question = ({name}) => {
                         }
                     }
                 }
-                else
+                else // unsuccesful submission thus {0, 1} 
                 {
                     universalMap.set(id, [0, 1]);
                 }
@@ -139,7 +144,7 @@ const Question = ({name}) => {
             }
         }
         
-        //merging all D + D1 + D2
+        //merging all D + D1 + D2 in D 
         for (const [key, value] of alphabetRatedQs.entries()) {
             if(key.length > 1)
             {
@@ -235,6 +240,8 @@ const Question = ({name}) => {
         setLoadNumRatedBarKey([...keys]);
         setLoadNumRatedBarVal([...values]);
     }
+
+    // loading all the charts with data after processing and storing it in arrays/hashmaps
     const alphabetRatedData = {
         labels : loadAlphaRatedBarKey ? [...loadAlphaRatedBarKey] : [],
         datasets : [{
