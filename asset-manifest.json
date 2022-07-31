@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/CodeforcesAnalyzer/static/css/main.788d2613.css",
-    "main.js": "/CodeforcesAnalyzer/static/js/main.65121ead.js",
+    "main.css": "/CodeforcesAnalyzer/static/css/main.c3a69a3b.css",
+    "main.js": "/CodeforcesAnalyzer/static/js/main.aae22190.js",
     "static/media/remixicon.svg?t=1590207869815": "/CodeforcesAnalyzer/static/media/remixicon.9cedd2150922ead84869.svg",
     "static/media/remixicon.eot?t=1590207869815": "/CodeforcesAnalyzer/static/media/remixicon.5cb99e6cba5a4619063f.eot",
     "static/media/remixicon.ttf?t=1590207869815": "/CodeforcesAnalyzer/static/media/remixicon.f2616f597cf98f38d234.ttf",
@@ -10,11 +10,11 @@
     "static/media/Search-rafiki.svg": "/CodeforcesAnalyzer/static/media/Search-rafiki.42ffa859d04317501892953cf7eff136.svg",
     "index.html": "/CodeforcesAnalyzer/index.html",
     "static/media/code-forces.svg": "/CodeforcesAnalyzer/static/media/code-forces.86b63f384eab89a197e9a8131c5c7993.svg",
-    "main.788d2613.css.map": "/CodeforcesAnalyzer/static/css/main.788d2613.css.map",
-    "main.65121ead.js.map": "/CodeforcesAnalyzer/static/js/main.65121ead.js.map"
+    "main.c3a69a3b.css.map": "/CodeforcesAnalyzer/static/css/main.c3a69a3b.css.map",
+    "main.aae22190.js.map": "/CodeforcesAnalyzer/static/js/main.aae22190.js.map"
   },
   "entrypoints": [
-    "static/css/main.788d2613.css",
-    "static/js/main.65121ead.js"
+    "static/css/main.c3a69a3b.css",
+    "static/js/main.aae22190.js"
   ]
 }
