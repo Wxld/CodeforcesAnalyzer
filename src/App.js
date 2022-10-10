@@ -5,7 +5,7 @@ import Main from "./Components/Main";
 import ScrollToTop from "./Components/ScrollToTop";
 
 const App = () => {
-  const [handle, setHandle] = useState("");
+  const [handle, setHandle] = useState("ConsistencyisTheChaavi");
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center bg-gradient-to-tr from-slate-50 to-slate-200 pb-12 relative">
